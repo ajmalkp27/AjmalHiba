@@ -3,13 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Ajmal Weds Hiba</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-
-<!-- 🔥 PRELOAD FOR SPEED -->
-<link rel="preload" href="1.png" as="image">
-<link rel="preload" href="music1.mp3" as="audio">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -18,19 +15,17 @@ body{
     font-family:'Poppins',sans-serif;
     background:#f7f3ee;
     color:#4b3b2a;
-    text-align:center;
 }
 
-.section{padding:30px 20px;}
-
-img{
-    max-width:100%;
-    display:block;
+/* COMMON */
+.section{
+    padding:40px 20px;
+    text-align:center;
+    max-width:420px;
+    margin:auto;
 }
 
 /* HERO */
-.hero{padding:60px 20px 30px;}
-
 .hero h1{
     font-family:'Playfair Display',serif;
     font-size:22px;
@@ -38,157 +33,126 @@ img{
 }
 
 .names{
-    font-size:34px;
-    margin-top:10px;
     font-family:'Playfair Display',serif;
+    font-size:36px;
+    margin-top:10px;
 }
 
 .subtitle{
-    margin-top:10px;
     font-size:14px;
     color:#7a5c45;
+    margin-top:10px;
 }
 
-.hero-img img{
+.hero img{
     width:100%;
-    max-width:360px;
-    height:400px;
-    object-fit:cover;
-    border-radius:50% 50% 0 0;
     margin-top:25px;
+    border-radius:50% 50% 0 0;
 }
 
 /* INVITE */
-.invite-text{font-size:15px;margin-bottom:20px;}
-
-.invite-image img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    border-radius:20px;
+.invite-text,.invite-sub{
+    font-size:15px;
+    line-height:1.7;
     margin:15px 0;
 }
 
-.invite-subtext{font-size:15px;line-height:1.7;}
-
-/* COUNTDOWN */
-.countdown-box{
-    background:#d9c2a7;
-    padding:40px 20px;
-    border-radius:12px;
-    max-width:350px;
-    margin:auto;
+.invite-img{
+    width:100%;
+    border-radius:20px;
 }
 
-.countdown-title{
+/* COUNTDOWN */
+.countdown{
+    background:#d9c2a7;
+    border-radius:12px;
+    padding:30px;
+}
+
+.count-title{
     display:flex;
     align-items:center;
-    justify-content:center;
     gap:10px;
     font-family:'Playfair Display',serif;
 }
 
-.countdown-title span{
+.count-title span{
     flex:1;
     height:1px;
     background:#b89c7c;
 }
 
-.count-item h1{
-    font-size:36px;
+.count h1{
     font-family:'Playfair Display',serif;
+    font-size:34px;
 }
 
-.count-footer{margin-top:20px;font-style:italic;}
+.count p{font-size:14px;}
+
+.footer-text{
+    margin-top:20px;
+    font-style:italic;
+}
 
 /* ROOTS */
-.roots-title{
-    font-family:'Playfair Display',serif;
-    margin-bottom:10px;
-}
-
-.roots-sub{
-    font-size:14px;
-    margin-bottom:30px;
-}
-
-.person-card{
-    background:#fff;
+.card{
+    background:white;
     padding:20px;
     border-radius:20px;
-    margin:20px auto;
-    max-width:320px;
+    margin:20px 0;
 }
 
-.arch-img{
-    height:320px;
+.arch{
+    height:260px;
     overflow:hidden;
     border-radius:150px 150px 20px 20px;
 }
 
-.arch-img img{
+.arch img{
     width:100%;
     height:100%;
     object-fit:cover;
 }
 
-.person-name{
+.name{
     font-family:'Playfair Display',serif;
-    margin-top:15px;
+    margin-top:10px;
 }
 
-.person-desc{font-size:13px;margin-top:10px;}
-
-.and{font-size:28px;margin:10px 0;}
+.and{
+    font-size:26px;
+}
 
 /* NIKAH */
-.event-top-text{
-    font-size:14px;
-    margin-bottom:25px;
-    line-height:1.6;
-}
-
-.nikah-card{
+.nikah{
     border:2px solid #c9a47c;
-    padding:25px;
+    padding:20px;
     border-radius:10px;
-    max-width:350px;
-    margin:auto;
-    background:#fff;
 }
 
-.nikah-img{
+.nikah img{
     width:100%;
-    height:220px;
-    object-fit:cover;
     border-radius:8px;
 }
 
-.nikah-title{
-    font-family:'Playfair Display',serif;
-    margin:10px 0;
-}
-
-.divider{
-    width:60%;
+.div{
     height:1px;
     background:#ddd;
     margin:15px auto;
+    width:60%;
 }
 
-.nikah-info{margin:10px 0;}
-
-.map-btn{
-    display:inline-block;
-    margin-top:15px;
+.map{
     background:#f0a020;
     color:white;
-    padding:12px 25px;
+    padding:12px;
+    display:inline-block;
+    margin-top:10px;
     border-radius:5px;
     text-decoration:none;
 }
 
-/* FORM */
+/* WISHES */
 input,textarea{
     width:100%;
     padding:12px;
@@ -200,227 +164,160 @@ input,textarea{
 .btn{
     background:#8b1e1e;
     color:white;
-    padding:12px 25px;
+    padding:12px;
+    width:100%;
     border:none;
     border-radius:8px;
 }
 
-/* FOOTER */
-footer{padding:30px;font-size:12px;}
-
-/* INTRO */
-#intro{
-    position:fixed;
-    width:100%;
-    height:100vh;
-    background:#f7f3ee;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:9999;
-    transition:1s ease;
+.wish-card{
+    background:#f3f3f3;
+    padding:15px;
+    border-radius:15px;
+    margin:15px 0;
+    position:relative;
 }
 
-.intro-content{
-    text-align:center;
-    animation:fadeIn 1.5s ease;
-}
-
-.intro-content h1{
-    font-family:'Playfair Display',serif;
-    font-size:34px;
-    margin:5px 0;
-}
-
-.intro-content h2{
-    font-family:'Playfair Display',serif;
+.quote{
+    position:absolute;
+    right:10px;
+    top:5px;
     font-size:20px;
+    color:#aaa;
 }
 
-.intro-content p{
-    font-size:14px;
-    color:#7a5c45;
-}
-
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(20px);}
-    to{opacity:1; transform:translateY(0);}
-}
-
-#intro.hide{
-    opacity:0;
-    visibility:hidden;
-}
 </style>
 </head>
 
 <body>
 
-<!-- INTRO -->
-<div id="intro">
-    <div class="intro-content">
-        <h2>Bismillah</h2>
-        <h1>Ajmal & Hiba</h1>
-        <p>Are Getting Married</p>
-        <p>You are invited to a blessed union</p>
-    </div>
-</div>
-
-<!-- MUSIC -->
-<audio id="bg-music" loop>
-    <source src="music1.mp3" type="audio/mpeg">
-</audio>
-
 <!-- HERO -->
-<section class="hero">
+<section class="section hero">
     <h1>WE ARE GETTING MARRIED</h1>
     <div class="names">Ajmal & Hiba</div>
     <p class="subtitle">With the blessings of Allah & our families</p>
-
-    <div class="hero-img">
-       <img src="1.png" loading="lazy">
-    </div>
+    <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db">
 </section>
 
 <!-- INVITE -->
 <section class="section">
     <p class="invite-text">
-        To our beloved family and friends — Your presence is the greatest gift 
-        you could give us on this blessed day.
+        To our beloved family and friends — Your presence is the greatest gift you could give us.
     </p>
 
-    <div class="invite-image">
-         <img src="2.png" loading="lazy">
-    </div>
+    <img class="invite-img" src="https://images.unsplash.com/photo-1529634890174-1f0b8c8d4c9b">
 
-    <p class="invite-subtext">
-        Two souls, one beautiful journey. With the blessings of Allah and the love of our families, 
-        we joyfully invite you to celebrate the beginning of our forever.
+    <p class="invite-sub">
+        Two souls, one beautiful journey. With the blessings of Allah, we invite you to celebrate.
     </p>
 </section>
 
 <!-- COUNTDOWN -->
 <section class="section">
-    <div class="countdown-box">
-        <div class="countdown-title"><span></span> Just <span></span></div>
+    <div class="countdown">
 
-        <div class="count-item"><h1 id="days"></h1><p>Days</p></div>
-        <div class="count-item"><h1 id="hours"></h1><p>Hours</p></div>
-        <div class="count-item"><h1 id="minutes"></h1><p>Minutes</p></div>
-        <div class="count-item"><h1 id="seconds"></h1><p>Seconds</p></div>
+        <div class="count-title">
+            <span></span> Just <span></span>
+        </div>
 
-        <div class="count-footer">Until We Get Married</div>
+        <div class="count"><h1 id="d"></h1><p>Days</p></div>
+        <div class="count"><h1 id="h"></h1><p>Hours</p></div>
+        <div class="count"><h1 id="m"></h1><p>Minutes</p></div>
+        <div class="count"><h1 id="s"></h1><p>Seconds</p></div>
+
+        <div class="footer-text">Until We Get Married</div>
     </div>
 </section>
 
 <!-- ROOTS -->
 <section class="section">
-    <h2 class="roots-title">THE ROOTS THAT MADE US</h2>
 
-    <p class="roots-sub">
-        Behind every loving couple stands two families full of prayers, blessings, and unconditional love.
-    </p>
+    <h2>THE ROOTS THAT MADE US</h2>
+    <p>Behind every loving couple stands two families full of love.</p>
 
-    <div class="person-card">
-        <div class="arch-img">
-             <img src="3.png" loading="lazy">
+    <div class="card">
+        <div class="arch">
+            <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6">
         </div>
-        <h3 class="person-name">MOHAMMED AJMAL</h3>
-        <p class="person-desc">S/O MR. Abdul Kadar <br>& MRS. Sabira</p>
+        <h3 class="name">MOHAMMED AJMAL</h3>
+        <p>S/O Abdul Kadar & Sabira</p>
     </div>
 
     <div class="and">&</div>
 
-    <div class="person-card">
-        <div class="arch-img">
-             <img src="4.png" loading="lazy">
+    <div class="card">
+        <div class="arch">
+            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e">
         </div>
-        <h3 class="person-name">HIBA</h3>
-        <p class="person-desc">D/O MR. Father Name <br>& MRS. Mother Name</p>
+        <h3 class="name">HIBA</h3>
+        <p>D/O Father & Mother</p>
     </div>
+
 </section>
 
 <!-- NIKAH -->
 <section class="section">
+    <div class="nikah">
 
-    <p class="event-top-text">
-        “And among His signs is that He created for you spouses from among yourselves so that you may find tranquility in them...” <br> — (Qur'an 30:21)
-    </p>
+        <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866">
 
-    <div class="nikah-card">
+        <h2>NIKKAH</h2>
 
-         <img src="5.png" class="nikah-img" loading="lazy">
+        <div class="div"></div>
 
-        <h2 class="nikah-title">NIKKAH</h2>
+        <p>📅 May 16, 2026</p>
+        <p>🕌 After Magrib Prayer</p>
+        <p>📍 Shifa Mahal, Mannur</p>
 
-        <div class="divider"></div>
-
-        <p class="nikah-info">📅 May 16, 2026</p>
-        <p class="nikah-info">🕌 After Magrib Prayer</p>
-        <p class="nikah-info">📍 Shifa Mahal, Mannur</p>
-
-        <a href="https://maps.app.goo.gl/AwNd82b9LsFQYYHF8?g_st=ic" target="_blank" class="map-btn">
+        <a href="https://maps.app.goo.gl/AwNd82b9LsFQYYHF8?g_st=ic" class="map" target="_blank">
             VIEW MAP
         </a>
 
     </div>
-
 </section>
 
 <!-- WISHES -->
 <section class="section">
-    <h2>Drop Your Wishes</h2>
 
-    <input type="text" placeholder="Your Name">
-    <textarea placeholder="Your Wish"></textarea>
+    <h3>WISHES FROM THE HEART</h3>
 
-    <button class="btn">Submit</button>
+    <input id="name" placeholder="Your Name">
+    <textarea id="wish" placeholder="Your Wish"></textarea>
+
+    <button class="btn" onclick="addWish()">Submit</button>
+
+    <div id="list"></div>
+
 </section>
 
-<footer>
-    Made with ❤️ for Ajmal & Hiba
-</footer>
-
 <script>
-// 🔥 FORCE INTRO HIDE (4 sec strict)
-setTimeout(() => {
-    document.getElementById("intro").classList.add("hide");
-}, 4000);
-
-// 🎵 MUSIC AFTER INTRO
-setTimeout(() => {
-    const music = document.getElementById("bg-music");
-    music.volume = 0;
-
-    music.play().then(() => {
-        let vol = 0;
-        const fade = setInterval(() => {
-            if (vol < 0.5) {
-                vol += 0.05;
-                music.volume = vol;
-            } else {
-                clearInterval(fade);
-            }
-        }, 300);
-    }).catch(() => {
-        document.body.addEventListener("click", () => {
-            music.play();
-        }, { once: true });
-    });
-}, 4000);
-
-// COUNTDOWN
-const weddingDate = new Date("May 16, 2026 18:30:00").getTime();
+const date=new Date("May 16, 2026 18:30:00").getTime();
 
 setInterval(()=>{
-    const now = new Date().getTime();
-    const diff = weddingDate - now;
+ let now=new Date().getTime();
+ let d=date-now;
 
-    document.getElementById("days").innerText = Math.floor(diff/(1000*60*60*24));
-    document.getElementById("hours").innerText = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-    document.getElementById("minutes").innerText = Math.floor((diff%(1000*60*60))/(1000*60));
-    document.getElementById("seconds").innerText = Math.floor((diff%(1000*60))/1000);
+ document.getElementById("d").innerHTML=Math.floor(d/86400000);
+ document.getElementById("h").innerHTML=Math.floor(d%86400000/3600000);
+ document.getElementById("m").innerHTML=Math.floor(d%3600000/60000);
+ document.getElementById("s").innerHTML=Math.floor(d%60000/1000);
 },1000);
+
+function addWish(){
+ let n=document.getElementById("name").value;
+ let w=document.getElementById("wish").value;
+
+ if(!n||!w){alert("Fill details");return;}
+
+ document.getElementById("list").innerHTML+=`
+ <div class="wish-card">
+ <div class="quote">❝</div>
+ <b>${n}</b><br>${w}
+ </div>`;
+
+ document.getElementById("name").value="";
+ document.getElementById("wish").value="";
+}
 </script>
 
 </body>
