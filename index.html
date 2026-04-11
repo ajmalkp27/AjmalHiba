@@ -265,7 +265,7 @@ input,textarea{
 
 <!-- ROOTS -->
 <section class="section">
-    <h2 class="roots-title">BLESSED BEGINNINGS</h2>
+    <h2 class="roots-title">THE ROOTS THAT MADE US</h2>
 
     <p class="roots-sub">
         Behind every loving couple stands two families full of prayers, blessings, and unconditional love.
@@ -288,7 +288,7 @@ input,textarea{
         <div class="arch-img">
              <img src="4.webp" loading="lazy">
         </div>
-        <h3 class="person-name">HIBA FATHMA</h3>
+        <h3 class="person-name">HIBA</h3>
         <p class="person-desc">
             D/O MR. SABITH <br>
             & MRS. SAMEERA
@@ -298,7 +298,7 @@ input,textarea{
 
 <!-- NIKAH -->
 <section class="section">
-   
+
     <p class="event-top-text">
         With the blessings of Allah, we invite you to witness our Nikah and share in our joy as we begin our journey together.
     </p>
@@ -308,6 +308,7 @@ input,textarea{
          <img src="5.webp" class="nikah-img" loading="lazy">
 
         <h2>NIKKAH</h2>
+
         <p>📅 May 16, 2026</p>
         <p>🕌 After Magrib Prayer</p>
         <p>📍 Shifa Mahal, Mannur</p>
@@ -333,7 +334,6 @@ input,textarea{
 </section>
 
 <script>
-
 // INTRO
 window.onload=()=>setTimeout(()=>document.getElementById("intro").classList.add("hide"),2000);
 
@@ -347,29 +347,23 @@ setInterval(()=>{
  document.getElementById("minutes").innerHTML=Math.floor(d%3600000/60000);
  document.getElementById("seconds").innerHTML=Math.floor(d%60000/1000);
 },1000);
-
 </script>
 
-<!-- FIREBASE -->
-<script type="module">
+<!-- FIREBASE FIX -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, addDoc, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
+<script>
 const firebaseConfig = {
   apiKey: "AIzaSyAlJTBU9pXG_I5dJmGtwEYNJ_uMpB2c2Ng",
   authDomain: "ajmal-hiba-wedding.firebaseapp.com",
-  projectId: "ajmal-hiba-wedding",
-  storageBucket: "ajmal-hiba-wedding.firebasestorage.app",
-  messagingSenderId: "119466226128",
-  appId: "1:119466226128:web:32e6f2aa1c1361c9aa89d5",
-  measurementId: "G-0N7CJRLQ2R"
+  projectId: "ajmal-hiba-wedding"
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
 
-window.addWish = async function(){
+function addWish(){
     const name = document.getElementById("name").value;
     const wish = document.getElementById("wish").value;
 
@@ -378,19 +372,16 @@ window.addWish = async function(){
         return;
     }
 
-    await addDoc(collection(db,"wishes"),{
+    db.collection("wishes").add({
         name:name,
         wish:wish,
         time:Date.now()
     });
+}
 
-    document.getElementById("name").value="";
-    document.getElementById("wish").value="";
-};
-
-const q = query(collection(db,"wishes"), orderBy("time","desc"));
-
-onSnapshot(q,(snapshot)=>{
+db.collection("wishes")
+.orderBy("time","desc")
+.onSnapshot((snapshot)=>{
     let html="";
     snapshot.forEach(doc=>{
         const data = doc.data();
@@ -404,7 +395,6 @@ onSnapshot(q,(snapshot)=>{
 
     document.getElementById("wishList").innerHTML = html;
 });
-
 </script>
 
 </body>
