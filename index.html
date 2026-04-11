@@ -19,7 +19,6 @@ body{
 
 .section{padding:30px 20px;}
 
-/* HERO */
 .hero{padding:60px 20px 30px;}
 
 .hero h1{
@@ -40,13 +39,11 @@ body{
     color:#7a5c45;
 }
 
-/* IMAGE FIX */
 img{
     max-width:100%;
     display:block;
 }
 
-/* HERO IMAGE */
 .hero-img img{
     width:100%;
     max-width:360px;
@@ -56,7 +53,6 @@ img{
     margin-top:25px;
 }
 
-/* INVITE */
 .invite-text{font-size:15px;margin-bottom:20px;}
 
 .invite-image img{
@@ -69,7 +65,6 @@ img{
 
 .invite-subtext{font-size:15px;line-height:1.7;}
 
-/* COUNTDOWN */
 .countdown-box{
     background:#d9c2a7;
     padding:40px 20px;
@@ -99,7 +94,6 @@ img{
 
 .count-footer{margin-top:20px;font-style:italic;}
 
-/* ROOTS */
 .roots-title{
     font-family:'Playfair Display',serif;
     margin-bottom:10px;
@@ -139,7 +133,6 @@ img{
 
 .and{font-size:28px;margin:10px 0;}
 
-/* NIKAH */
 .nikah-card{
     border:2px solid #c9a47c;
     padding:25px;
@@ -166,7 +159,6 @@ img{
     text-decoration:none;
 }
 
-/* FORM */
 input,textarea{
     width:100%;
     padding:12px;
@@ -183,16 +175,15 @@ input,textarea{
     border-radius:8px;
 }
 
-/* WISH DISPLAY */
 .wish-card{
-    background:#fff;
-    padding:15px;
+    background:#f9f9f9;
+    padding:18px;
     margin:15px 0;
-    border-radius:10px;
+    border-radius:12px;
     text-align:left;
+    border-left:4px solid #b07a6a;
 }
 
-/* INTRO */
 #intro{
     position:fixed;
     width:100%;
@@ -209,6 +200,7 @@ input,textarea{
     opacity:0;
     visibility:hidden;
 }
+
 .event-top-text{
     font-size:14px;
     margin-bottom:25px;
@@ -221,15 +213,14 @@ input,textarea{
 
 <!-- INTRO -->
 <div id="intro">
-    <div class="intro-content">
+    <div>
         <h2>Bismillah</h2>
         <h1>Ajmal & Hiba</h1>
         <p>Are Getting Married</p>
-
-        <!-- ✅ ADD THIS BACK -->
         <p>You are invited to a blessed union</p>
     </div>
 </div>
+
 <!-- HERO -->
 <section class="hero">
     <h1>WE ARE GETTING MARRIED</h1>
@@ -316,7 +307,6 @@ input,textarea{
 
          <img src="5.webp" class="nikah-img" loading="lazy">
 
-        
         <h2>NIKKAH</h2>
         <p>📅 May 16, 2026</p>
         <p>🕌 After Magrib Prayer</p>
@@ -358,28 +348,62 @@ setInterval(()=>{
  document.getElementById("seconds").innerHTML=Math.floor(d%60000/1000);
 },1000);
 
-// WISH SYSTEM
-function addWish(){
-    const name=document.getElementById("name").value;
-    const wish=document.getElementById("wish").value;
+</script>
 
-    if(name==""||wish==""){
+<!-- FIREBASE -->
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAlJTBU9pXG_I5dJmGtwEYNJ_uMpB2c2Ng",
+  authDomain: "ajmal-hiba-wedding.firebaseapp.com",
+  projectId: "ajmal-hiba-wedding",
+  storageBucket: "ajmal-hiba-wedding.firebasestorage.app",
+  messagingSenderId: "119466226128",
+  appId: "1:119466226128:web:32e6f2aa1c1361c9aa89d5",
+  measurementId: "G-0N7CJRLQ2R"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.addWish = async function(){
+    const name = document.getElementById("name").value;
+    const wish = document.getElementById("wish").value;
+
+    if(name=="" || wish==""){
         alert("Enter details");
         return;
     }
 
-    const card=`
-    <div class="wish-card">
-        <strong>${name}</strong>
-        <p>${wish}</p>
-    </div>`;
-
-    document.getElementById("wishList").innerHTML =
-        card + document.getElementById("wishList").innerHTML;
+    await addDoc(collection(db,"wishes"),{
+        name:name,
+        wish:wish,
+        time:Date.now()
+    });
 
     document.getElementById("name").value="";
     document.getElementById("wish").value="";
-}
+};
+
+const q = query(collection(db,"wishes"), orderBy("time","desc"));
+
+onSnapshot(q,(snapshot)=>{
+    let html="";
+    snapshot.forEach(doc=>{
+        const data = doc.data();
+
+        html += `
+        <div class="wish-card">
+            <strong>${data.name}</strong>
+            <p>${data.wish}</p>
+        </div>`;
+    });
+
+    document.getElementById("wishList").innerHTML = html;
+});
 
 </script>
 
