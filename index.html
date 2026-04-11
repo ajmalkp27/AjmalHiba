@@ -7,6 +7,10 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
+<!-- 🔥 PRELOAD FOR SPEED -->
+<link rel="preload" href="1.png" as="image">
+<link rel="preload" href="music1.mp3" as="audio">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 
@@ -18,6 +22,11 @@ body{
 }
 
 .section{padding:30px 20px;}
+
+img{
+    max-width:100%;
+    display:block;
+}
 
 /* HERO */
 .hero{padding:60px 20px 30px;}
@@ -38,12 +47,6 @@ body{
     margin-top:10px;
     font-size:14px;
     color:#7a5c45;
-}
-
-/* IMAGE FIX */
-img{
-    max-width:100%;
-    display:block;
 }
 
 .hero-img img{
@@ -275,7 +278,7 @@ footer{padding:30px;font-size:12px;}
     <p class="subtitle">With the blessings of Allah & our families</p>
 
     <div class="hero-img">
-       <img src="1.png" />
+       <img src="1.png" loading="lazy">
     </div>
 </section>
 
@@ -287,7 +290,7 @@ footer{padding:30px;font-size:12px;}
     </p>
 
     <div class="invite-image">
-         <img src="2.png" />
+         <img src="2.png" loading="lazy">
     </div>
 
     <p class="invite-subtext">
@@ -320,7 +323,7 @@ footer{padding:30px;font-size:12px;}
 
     <div class="person-card">
         <div class="arch-img">
-             <img src="3.png" />
+             <img src="3.png" loading="lazy">
         </div>
         <h3 class="person-name">MOHAMMED AJMAL</h3>
         <p class="person-desc">S/O MR. Abdul Kadar <br>& MRS. Sabira</p>
@@ -330,7 +333,7 @@ footer{padding:30px;font-size:12px;}
 
     <div class="person-card">
         <div class="arch-img">
-             <img src="4.png" />
+             <img src="4.png" loading="lazy">
         </div>
         <h3 class="person-name">HIBA</h3>
         <p class="person-desc">D/O MR. Father Name <br>& MRS. Mother Name</p>
@@ -341,12 +344,12 @@ footer{padding:30px;font-size:12px;}
 <section class="section">
 
     <p class="event-top-text">
-        “And among His signs is that He created for you spouses from among yourselves so that you may find tranquility in them; and He placed between you love and mercy.” <br> — (Qur'an 30:21)
+        “And among His signs is that He created for you spouses from among yourselves so that you may find tranquility in them...” <br> — (Qur'an 30:21)
     </p>
 
     <div class="nikah-card">
 
-         <img src="5.png" class="nikah-img" />
+         <img src="5.png" class="nikah-img" loading="lazy">
 
         <h2 class="nikah-title">NIKKAH</h2>
 
@@ -379,14 +382,12 @@ footer{padding:30px;font-size:12px;}
 </footer>
 
 <script>
-// INTRO
-window.addEventListener("load", () => {
-    setTimeout(() => {
-        document.getElementById("intro").classList.add("hide");
-    }, 2500);
-});
+// 🔥 FORCE INTRO HIDE (4 sec strict)
+setTimeout(() => {
+    document.getElementById("intro").classList.add("hide");
+}, 4000);
 
-// MUSIC (fade-in)
+// 🎵 MUSIC AFTER INTRO
 setTimeout(() => {
     const music = document.getElementById("bg-music");
     music.volume = 0;
@@ -406,7 +407,7 @@ setTimeout(() => {
             music.play();
         }, { once: true });
     });
-}, 2500);
+}, 4000);
 
 // COUNTDOWN
 const weddingDate = new Date("May 16, 2026 18:30:00").getTime();
