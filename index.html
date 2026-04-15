@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+
 <!-- WhatsApp Preview -->
 <meta property="og:title" content="Ajmal Weds Hiba 💍">
-<meta property="og:description" content="You are invited to our blessed Nikah ceremony on May 16. Join us and celebrate our special day.">
-<meta property="og:image" content="https://ajmalkp27.github.io/AjmalHiba/preview.png">
+<meta property="og:description" content="Nikah on May 16 after Magrib Prayer. Join us to celebrate our blessed union.">
+<meta property="og:image" content="https://ajmalkp27.github.io/AjmalHiba/preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://ajmalkp27.github.io/AjmalHiba/">
 <meta property="og:type" content="website">
-
-<!-- Optional -->
 <meta name="twitter:card" content="summary_large_image">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ajmal Weds Hiba</title>
@@ -194,6 +195,7 @@ input,textarea{
     border-left:4px solid #b07a6a;
 }
 
+/* INTRO ANIMATION */
 #intro{
     position:fixed;
     width:100%;
@@ -211,6 +213,28 @@ input,textarea{
     visibility:hidden;
 }
 
+.intro-content h2,
+.intro-content p{
+    transform:translateX(-100%);
+    opacity:0;
+    animation:leftIn 1s ease forwards;
+}
+
+.intro-content h1{
+    transform:translateX(100%);
+    opacity:0;
+    animation:rightIn 1s ease forwards;
+    animation-delay:0.3s;
+}
+
+@keyframes leftIn{
+    to{transform:translateX(0);opacity:1;}
+}
+
+@keyframes rightIn{
+    to{transform:translateX(0);opacity:1;}
+}
+
 .event-top-text{
     font-size:14px;
     margin-bottom:25px;
@@ -223,8 +247,8 @@ input,textarea{
 
 <!-- INTRO -->
 <div id="intro">
-    <div>
-        <h2>Bismillah</h2>
+    <div class="intro-content">
+        <h2>Bismillah ...</h2>
         <h1>Ajmal & Hiba</h1>
         <p>Are Getting Married</p>
         <p>You are invited to a blessed union</p>
@@ -308,17 +332,13 @@ input,textarea{
 
 <!-- NIKAH -->
 <section class="section">
-
     <p class="event-top-text">
-        With the blessings of Allah, we invite you to witness our Nikah and share in our joy as we begin our journey together.
+        With the blessings of Allah, we invite you to witness our Nikah and share in our joy.
     </p>
 
     <div class="nikah-card">
-
          <img src="5.webp" class="nikah-img" loading="lazy">
-
         <h2>NIKKAH</h2>
-
         <p>📅 May 16, 2026</p>
         <p>🕌 After Magrib Prayer</p>
         <p>📍 Shifa Mahal, Mannur</p>
@@ -326,20 +346,30 @@ input,textarea{
         <a href="https://maps.app.goo.gl/AwNd82b9LsFQYYHF8?g_st=ic" target="_blank" class="map-btn">
             VIEW MAP
         </a>
-
     </div>
-    <br>
-    <footer>
-    Made with ❤️ for Ajmal & Hiba
-</footer>
-
 </section>
 
+<!-- WISHES -->
+<section class="section">
+    <h2>Drop Your Wishes</h2>
 
+    <input type="text" id="name" placeholder="Your Name">
+    <textarea id="wish" placeholder="Your Wish"></textarea>
+
+    <button class="btn" onclick="addWish()">Submit</button>
+
+    <div id="wishList"></div>
+</section>
 
 <script>
-// INTRO
-window.onload=()=>setTimeout(()=>document.getElementById("intro").classList.add("hide"),2000);
+
+// INTRO + VIBRATION
+window.onload = () => {
+    if (navigator.vibrate) {
+        navigator.vibrate([100,50,100]);
+    }
+    setTimeout(()=>document.getElementById("intro").classList.add("hide"),2000);
+};
 
 // COUNTDOWN
 const date=new Date("May 16, 2026 18:30:00").getTime();
@@ -351,9 +381,10 @@ setInterval(()=>{
  document.getElementById("minutes").innerHTML=Math.floor(d%3600000/60000);
  document.getElementById("seconds").innerHTML=Math.floor(d%60000/1000);
 },1000);
+
 </script>
 
-<!-- FIREBASE FIX -->
+<!-- FIREBASE -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
@@ -368,10 +399,10 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 function addWish(){
-    const name = document.getElementById("name").value;
-    const wish = document.getElementById("wish").value;
+    const name=document.getElementById("name").value;
+    const wish=document.getElementById("wish").value;
 
-    if(name=="" || wish==""){
+    if(name==""||wish==""){
         alert("Enter details");
         return;
     }
@@ -381,6 +412,9 @@ function addWish(){
         wish:wish,
         time:Date.now()
     });
+
+    document.getElementById("name").value="";
+    document.getElementById("wish").value="";
 }
 
 db.collection("wishes")
