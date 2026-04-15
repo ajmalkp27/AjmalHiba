@@ -19,7 +19,7 @@
 
 body{
     font-family:'Poppins',sans-serif;
-    background:#f7f3ee;
+    background:#efe3d3;
     color:#4b3b2a;
     text-align:center;
 }
@@ -77,26 +77,10 @@ img{max-width:100%;display:block;}
     margin:auto;
 }
 
-.countdown-title{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    font-family:'Playfair Display',serif;
-}
-
-.countdown-title span{
-    flex:1;
-    height:1px;
-    background:#b89c7c;
-}
-
 .count-item h1{
     font-size:36px;
     font-family:'Playfair Display',serif;
 }
-
-.count-footer{margin-top:20px;font-style:italic;}
 
 .roots-title{font-family:'Playfair Display';margin-bottom:10px;}
 .roots-sub{font-size:14px;margin-bottom:30px;}
@@ -164,16 +148,7 @@ input,textarea{
     border-radius:8px;
 }
 
-/* NEW WISH UI */
-.wish-wrapper{
-    border:2px solid #c9a47c;
-    padding:25px;
-    border-radius:12px;
-    background:#fff;
-    max-width:350px;
-    margin:auto;
-}
-
+/* WISH UI */
 .wish-card{
     background:#fff;
     padding:20px;
@@ -185,54 +160,6 @@ input,textarea{
     position:relative;
     border-bottom:4px solid #b07a6a;
 }
-
-.wish-name{
-    font-family:'Playfair Display';
-    font-size:18px;
-    color:#6b4c3b;
-}
-
-.wish-text{
-    font-size:14px;
-    margin-top:8px;
-}
-
-.quote{
-    position:absolute;
-    right:15px;
-    top:10px;
-    font-size:20px;
-}
-
-/* INTRO */
-#intro{
-    position:fixed;
-    width:100%;
-    height:100vh;
-    background:#f7f3ee;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:9999;
-}
-
-#intro.hide{display:none;}
-
-#celebration{position:absolute;width:100%;height:100%;}
-
-.particle{
-    position:absolute;
-    width:6px;
-    height:6px;
-    background:#c9a47c;
-    border-radius:50%;
-    animation:floatUp linear infinite;
-}
-
-@keyframes floatUp{
-    from{transform:translateY(100vh);}
-    to{transform:translateY(-10vh);}
-}
 </style>
 </head>
 
@@ -240,29 +167,27 @@ input,textarea{
 
 <!-- INTRO -->
 <div id="intro">
-    <div id="celebration"></div>
-    <div>
-        <h2>Bismillah</h2>
-        <h1>Ajmal & Hiba</h1>
-        <p>Are Getting Married</p>
-        <p>You are invited to a blessed union</p>
-    </div>
+    <h2>Bismillah </h2>
+    <h1>Ajmal & Hiba</h1>
+    <p>Are Getting Married</p>
+    <p>You are invited to a blessed union</p>
 </div>
 
 <!-- HERO -->
 <section class="hero">
-    <h1>WE ARE GETTING MARRIED</h1>
-    <div class="names">Ajmal & Hiba</div>
-    <p class="subtitle">With the blessings of Allah</p>
-    <div class="hero-img">
-       <img src="1.webp">
-    </div>
+<h1>WE ARE GETTING MARRIED</h1>
+<div class="names">Ajmal & Hiba</div>
+<p class="subtitle">With the blessings of Allah & our families</p>
+
+<div class="hero-img">
+<img src="1.webp">
+</div>
 </section>
 
 <!-- INVITE -->
 <section class="section">
 <p class="invite-text">
-To our beloved family and friends — Your presence is the greatest gift you could give us.
+To our beloved family and friends — Your presence is the greatest gift you could give us on this blessed day.
 </p>
 
 <div class="invite-image">
@@ -270,7 +195,7 @@ To our beloved family and friends — Your presence is the greatest gift you cou
 </div>
 
 <p class="invite-subtext">
-Two souls, one beautiful journey...
+Two souls, one beautiful journey. With the blessings of Allah and the love of our families, we joyfully invite you to celebrate the beginning of our forever.
 </p>
 </section>
 
@@ -288,10 +213,14 @@ Two souls, one beautiful journey...
 <section class="section">
 <h2 class="roots-title">THE ROOTS THAT MADE US</h2>
 
+<p class="roots-sub">
+Behind every loving couple stands two families full of prayers, blessings, and unconditional love.
+</p>
+
 <div class="person-card">
 <div class="arch-img"><img src="3.webp"></div>
 <h3 class="person-name">MUHAMMAD AJMAL</h3>
-<p>S/O MR. ASHRAF V & MRS. NASEEMA KP</p>
+<p class="person-desc">S/O MR. ASHRAF V <br> & MRS. NASEEMA KP</p>
 </div>
 
 <div class="and">&</div>
@@ -299,29 +228,34 @@ Two souls, one beautiful journey...
 <div class="person-card">
 <div class="arch-img"><img src="4.webp"></div>
 <h3 class="person-name">HIBA FATHMA</h3>
-<p>D/O MR. SABITH & MRS. SAMEERA</p>
+<p class="person-desc">D/O MR. SABITH <br> & MRS. SAMEERA</p>
 </div>
 </section>
 
 <!-- NIKAH -->
 <section class="section">
+<p>With the blessings of Allah, we invite you to witness our Nikah and share in our joy.</p>
+
 <div class="nikah-card">
 <img src="5.webp" class="nikah-img">
 <h2>NIKKAH</h2>
-<p>May 16, 2026</p>
-<p>After Magrib Prayer</p>
-<p>Shifa Mahal, Mannur</p>
+<p>📅 May 16, 2026</p>
+<p>🕌 After Magrib Prayer</p>
+<p>📍 Shifa Mahal, Mannur</p>
 </div>
 </section>
 
 <!-- RECEPTION -->
 <section class="section">
+<p class="event-top-text">
+        We warmly invite you to join us for our Reception and celebrate this joyful occasion with your presence.
+</p>
 <div class="nikah-card">
 <img src="rec.png" class="nikah-img">
 <h2>RECEPTION</h2>
-<p>May 17, 2026</p>
-<p>From 12 PM</p>
-<p>Shifa Mahal, Mannur</p>
+<p>📅 May 17, 2026</p>
+<p>🕛 From 12 PM</p>
+<p>📍 Shifa Mahal, Mannur</p>
 </div>
 </section>
 
@@ -329,33 +263,19 @@ Two souls, one beautiful journey...
 <section class="section">
 
 <h3>WISHES FROM THE HEART</h3>
-<h2>Explore the love and wishes shared with us</h2>
 
-<div class="wish-wrapper">
 <input id="name" placeholder="Name">
 <textarea id="wish" placeholder="Make Your Wish"></textarea>
-<button class="btn" onclick="addWish()">SUBMIT</button>
-</div>
+<button class="btn" onclick="addWish()">Submit</button>
 
 <div id="wishList"></div>
+<footer>
+    Made with ❤️ for Ajmal & Hiba
+</footer>
 
 </section>
 
 <script>
-
-// intro
-window.onload=()=>{
-    let c=document.getElementById("celebration");
-    for(let i=0;i<40;i++){
-        let p=document.createElement("div");
-        p.className="particle";
-        p.style.left=Math.random()*100+"%";
-        p.style.animationDuration=(5+Math.random()*5)+"s";
-        c.appendChild(p);
-    }
-    setTimeout(()=>document.getElementById("intro").classList.add("hide"),2000);
-};
-
 // countdown
 let d=new Date("May 16 2026 18:30:00").getTime();
 setInterval(()=>{
@@ -366,7 +286,6 @@ hours.innerHTML=Math.floor(diff%86400000/3600000);
 minutes.innerHTML=Math.floor(diff%3600000/60000);
 seconds.innerHTML=Math.floor(diff%60000/1000);
 },1000);
-
 </script>
 
 <!-- FIREBASE -->
@@ -384,28 +303,26 @@ firebase.initializeApp(firebaseConfig);
 const db=firebase.firestore();
 
 function addWish(){
-let name=document.getElementById("name").value;
-let wish=document.getElementById("wish").value;
-if(!name||!wish)return alert("Enter details");
+let n=document.getElementById("name");
+let w=document.getElementById("wish");
+
+if(!n.value||!w.value)return alert("Enter details");
 
 db.collection("wishes").add({
-name,wish,time:Date.now()
+name:n.value,
+wish:w.value,
+time:Date.now()
 });
 
-name.value="";
-wish.value="";
+n.value="";
+w.value="";
 }
 
 db.collection("wishes").orderBy("time","desc").onSnapshot(snap=>{
 let html="";
 snap.forEach(doc=>{
 let d=doc.data();
-html+=`
-<div class="wish-card">
-<div class="quote">❝</div>
-<div class="wish-name">${d.name}</div>
-<div class="wish-text">${d.wish}</div>
-</div>`;
+html+=`<div class="wish-card"><b>${d.name}</b><p>${d.wish}</p></div>`;
 });
 wishList.innerHTML=html;
 });
