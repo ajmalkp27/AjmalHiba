@@ -23,7 +23,7 @@ body{
     color:#4b3b2a;
     text-align:center;
 }
-/* INTRO FULL FIX */
+/* CINEMATIC INTRO */
 #intro{
     position:fixed !important;
     top:0;
@@ -34,30 +34,32 @@ body{
     display:flex;
     align-items:center;
     justify-content:center;
-    flex-direction:column;
+    overflow:hidden;
     z-index:99999;
 }
 
 #intro.hide{
     opacity:0;
     visibility:hidden;
-    transition:1s;
-}
+    transition:1.2s ease;
 }
 
+/* TEXT */
 .intro-content{
     text-align:center;
-    animation:fadeIn 1.5s ease;
+    z-index:2;
+    animation:zoomIn 2s ease;
 }
 
 .intro-content h1{
-    font-family:'Playfair Display',serif;
-    font-size:34px;
+    font-family:'Playfair Display';
+    font-size:36px;
     margin:10px 0;
+    text-shadow:0 0 15px rgba(201,164,124,0.5);
 }
 
 .intro-content h2{
-    font-family:'Playfair Display',serif;
+    font-family:'Playfair Display';
     font-size:20px;
 }
 
@@ -66,9 +68,39 @@ body{
     color:#7a5c45;
 }
 
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(20px);}
-    to{opacity:1; transform:translateY(0);}
+/* ZOOM EFFECT */
+@keyframes zoomIn{
+    from{
+        transform:scale(0.8);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+/* SPARKLES */
+#sparkles{
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+.spark{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:#c9a47c;
+    border-radius:50%;
+    opacity:0.7;
+    animation:float 6s linear infinite;
+}
+
+@keyframes float{
+    from{transform:translateY(100vh);}
+    to{transform:translateY(-10vh);}
 }
 .section{padding:30px 20px;}
 
@@ -213,6 +245,8 @@ input,textarea{
 
 <!-- INTRO -->
 <div id="intro">
+    <div id="sparkles"></div>
+
     <div class="intro-content">
         <h2>Bismillah</h2>
         <h1>Ajmal & Hiba</h1>
@@ -324,11 +358,24 @@ Behind every loving couple stands two families full of prayers, blessings, and u
 </section>
 
 <script>
-    // INTRO FIX (ADD THIS FIRST)
+// CINEMATIC INTRO
 window.onload = () => {
+
+    // sparkles generate
+    const container = document.getElementById("sparkles");
+    for(let i=0;i<50;i++){
+        let s=document.createElement("div");
+        s.className="spark";
+        s.style.left=Math.random()*100+"%";
+        s.style.animationDuration=(4+Math.random()*4)+"s";
+        s.style.opacity=Math.random();
+        container.appendChild(s);
+    }
+
+    // hide intro
     setTimeout(()=>{
         document.getElementById("intro").classList.add("hide");
-    },2000);
+    },2500);
 };
 // countdown
 let d=new Date("May 16 2026 18:30:00").getTime();
