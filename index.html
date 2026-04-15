@@ -391,6 +391,18 @@ Behind every loving couple stands two families full of prayers, blessings, and u
     </div>
 
 </section>
+<!-- SHOW WISHES -->
+<section class="section">
+
+    <h2 class="roots-title">WISHES FROM THE HEART</h2>
+
+    <p class="roots-sub">
+        Explore the love and wishes shared with us
+    </p>
+
+    <div id="wishList"></div>
+
+</section>
 <br>
 <footer>
     Made with ❤️ for Ajmal & Hiba
@@ -466,7 +478,7 @@ snap.forEach(doc=>{
 let d=doc.data();
 html+=`<div class="wish-card"><b>${d.name}</b><p>${d.wish}</p></div>`;
 });
-wishList.innerHTML=html;
+document.getElementById("wishList").innerHTML = html;
 });
 </script>
 
