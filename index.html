@@ -11,6 +11,7 @@
 <meta property="og:url" content="https://ajmalkp27.github.io/AjmalHiba/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="image" content="https://ajmalkp27.github.io/AjmalHiba/preview.jpg">
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -195,7 +196,7 @@ input,textarea{
     border-left:4px solid #b07a6a;
 }
 
-/* INTRO ANIMATION */
+/* INTRO */
 #intro{
     position:fixed;
     width:100%;
@@ -213,26 +214,41 @@ input,textarea{
     visibility:hidden;
 }
 
-.intro-content h2,
-.intro-content p{
-    transform:translateX(-100%);
-    opacity:0;
-    animation:leftIn 1s ease forwards;
+.intro-content{
+    position:relative;
+    z-index:2;
 }
 
-.intro-content h1{
-    transform:translateX(100%);
-    opacity:0;
-    animation:rightIn 1s ease forwards;
-    animation-delay:0.3s;
+/* PARTICLES */
+#celebration{
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    top:0;
+    left:0;
+    z-index:1;
 }
 
-@keyframes leftIn{
-    to{transform:translateX(0);opacity:1;}
+.particle{
+    position:absolute;
+    width:8px;
+    height:8px;
+    background:#c9a47c;
+    border-radius:50%;
+    opacity:0.7;
+    animation:floatUp linear infinite;
 }
 
-@keyframes rightIn{
-    to{transform:translateX(0);opacity:1;}
+@keyframes floatUp{
+    from{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+    to{
+        transform:translateY(-10vh);
+        opacity:1;
+    }
 }
 
 .event-top-text{
@@ -247,8 +263,10 @@ input,textarea{
 
 <!-- INTRO -->
 <div id="intro">
+    <div id="celebration"></div>
+
     <div class="intro-content">
-        <h2>Bismillah ...</h2>
+        <h2>Bismillah ..1.</h2>
         <h1>Ajmal & Hiba</h1>
         <p>Are Getting Married</p>
         <p>You are invited to a blessed union</p>
@@ -260,7 +278,6 @@ input,textarea{
     <h1>WE ARE GETTING MARRIED</h1>
     <div class="names">Ajmal & Hiba</div>
     <p class="subtitle">With the blessings of Allah</p>
-
     <div class="hero-img">
        <img src="1.webp" loading="eager">
     </div>
@@ -269,8 +286,7 @@ input,textarea{
 <!-- INVITE -->
 <section class="section">
     <p class="invite-text">
-        To our beloved family and friends — Your presence is the greatest gift 
-        you could give us on this blessed day.
+        To our beloved family and friends — Your presence is the greatest gift you could give us on this blessed day.
     </p>
 
     <div class="invite-image">
@@ -278,8 +294,7 @@ input,textarea{
     </div>
 
     <p class="invite-subtext">
-        Two souls, one beautiful journey. With the blessings of Allah and the love of our families, 
-        we joyfully invite you to celebrate the beginning of our forever.
+        Two souls, one beautiful journey. With the blessings of Allah and the love of our families, we joyfully invite you to celebrate the beginning of our forever.
     </p>
 </section>
 
@@ -363,11 +378,18 @@ input,textarea{
 
 <script>
 
-// INTRO + VIBRATION
-window.onload = () => {
-    if (navigator.vibrate) {
-        navigator.vibrate([100,50,100]);
+// INTRO
+window.onload=()=>{
+    const container = document.getElementById("celebration");
+
+    for(let i=0;i<40;i++){
+        let p=document.createElement("div");
+        p.classList.add("particle");
+        p.style.left=Math.random()*100+"%";
+        p.style.animationDuration=(5+Math.random()*5)+"s";
+        container.appendChild(p);
     }
+
     setTimeout(()=>document.getElementById("intro").classList.add("hide"),2000);
 };
 
