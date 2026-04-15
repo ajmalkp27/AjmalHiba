@@ -226,17 +226,27 @@ input,textarea{
     border-radius:8px;
 }
 
-/* WISH UI */
 .wish-card{
     background:#fff;
     padding:20px;
-    margin:15px auto;
+    margin:15px 0;
     border-radius:16px;
-    max-width:350px;
     text-align:left;
+    border-bottom:4px solid #c89b8a;
     box-shadow:0 5px 15px rgba(0,0,0,0.05);
-    position:relative;
-    border-bottom:4px solid #b07a6a;
+}
+
+.wish-card strong{
+    font-family:'Playfair Display';
+    font-size:18px;
+    color:#5a3e2b;
+    letter-spacing:1px;
+}
+
+.wish-card p{
+    margin-top:10px;
+    font-size:14px;
+    line-height:1.6;
 }
 .map-btn{
     display:inline-block;
@@ -366,13 +376,21 @@ Behind every loving couple stands two families full of prayers, blessings, and u
 <!-- WISHES -->
 <section class="section">
 
-<h3>WISHES FROM THE HEART</h3>
+    <div class="wish-box">
 
-<input id="name" placeholder="Name">
-<textarea id="wish" placeholder="Make Your Wish"></textarea>
-<button class="btn" onclick="addWish()">Submit</button>
+        <h2>DROP YOUR WISHES 💌</h2>
 
-<div id="wishList"></div>
+        <input type="text" id="name" placeholder="Name">
+
+        <textarea id="wish" placeholder="Make Your Wish"></textarea>
+
+        <button class="btn" onclick="addWish()">
+            SUBMIT YOUR WISH
+        </button>
+
+    </div>
+
+</section>
 <br>
 <footer>
     Made with ❤️ for Ajmal & Hiba
