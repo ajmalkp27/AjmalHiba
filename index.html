@@ -7,7 +7,6 @@
 <meta property="og:description" content="Nikah on May 16 after Magrib Prayer. Join us to celebrate our blessed union.">
 <meta property="og:image" content="https://ajmalkp27.github.io/AjmalHiba/preview.jpg">
 <meta property="og:url" content="https://ajmalkp27.github.io/AjmalHiba/">
-<meta property="og:type" content="website">
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,20 +25,28 @@ body{
 }
 
 .section{padding:30px 20px;}
+
 .hero{padding:60px 20px 30px;}
 
 .hero h1{
-    font-family:'Playfair Display';
+    font-family:'Playfair Display',serif;
     font-size:22px;
+    letter-spacing:2px;
 }
 
 .names{
     font-size:34px;
     margin-top:10px;
-    font-family:'Playfair Display';
+    font-family:'Playfair Display',serif;
 }
 
-.subtitle{font-size:14px;color:#7a5c45;}
+.subtitle{
+    margin-top:10px;
+    font-size:14px;
+    color:#7a5c45;
+}
+
+img{max-width:100%;display:block;}
 
 .hero-img img{
     width:100%;
@@ -47,23 +54,52 @@ body{
     height:400px;
     object-fit:cover;
     border-radius:50% 50% 0 0;
-    margin:auto;
+    margin-top:25px;
 }
+
+.invite-text{font-size:15px;margin-bottom:20px;}
 
 .invite-image img{
     width:100%;
     height:220px;
     object-fit:cover;
     border-radius:20px;
+    margin:15px 0;
 }
+
+.invite-subtext{font-size:15px;line-height:1.7;}
 
 .countdown-box{
     background:#d9c2a7;
-    padding:30px;
+    padding:40px 20px;
     border-radius:12px;
     max-width:350px;
     margin:auto;
 }
+
+.countdown-title{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    font-family:'Playfair Display',serif;
+}
+
+.countdown-title span{
+    flex:1;
+    height:1px;
+    background:#b89c7c;
+}
+
+.count-item h1{
+    font-size:36px;
+    font-family:'Playfair Display',serif;
+}
+
+.count-footer{margin-top:20px;font-style:italic;}
+
+.roots-title{font-family:'Playfair Display';margin-bottom:10px;}
+.roots-sub{font-size:14px;margin-bottom:30px;}
 
 .person-card{
     background:#fff;
@@ -74,16 +110,17 @@ body{
 }
 
 .arch-img{
-    height:300px;
+    height:320px;
     overflow:hidden;
     border-radius:150px 150px 20px 20px;
 }
 
-.arch-img img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
+.arch-img img{width:100%;height:100%;object-fit:cover;}
+
+.person-name{font-family:'Playfair Display';margin-top:15px;}
+.person-desc{font-size:13px;margin-top:10px;}
+
+.and{font-size:28px;margin:10px 0;}
 
 .nikah-card{
     border:2px solid #c9a47c;
@@ -94,17 +131,49 @@ body{
     background:#fff;
 }
 
+.nikah-img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
 .map-btn{
     display:inline-block;
-    margin-top:10px;
+    margin-top:15px;
     background:#f0a020;
     color:white;
-    padding:10px 20px;
+    padding:12px 25px;
     border-radius:5px;
     text-decoration:none;
 }
 
-/* WISH CARD */
+input,textarea{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+.btn{
+    background:#8b1e1e;
+    color:white;
+    padding:12px 25px;
+    border:none;
+    border-radius:8px;
+}
+
+/* NEW WISH UI */
+.wish-wrapper{
+    border:2px solid #c9a47c;
+    padding:25px;
+    border-radius:12px;
+    background:#fff;
+    max-width:350px;
+    margin:auto;
+}
+
 .wish-card{
     background:#fff;
     padding:20px;
@@ -112,38 +181,57 @@ body{
     border-radius:16px;
     max-width:350px;
     text-align:left;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+    position:relative;
     border-bottom:4px solid #b07a6a;
 }
 
 .wish-name{
     font-family:'Playfair Display';
     font-size:18px;
-    margin-bottom:8px;
+    color:#6b4c3b;
 }
 
-.wish-text{font-size:14px;}
+.wish-text{
+    font-size:14px;
+    margin-top:8px;
+}
 
 .quote{
-    float:right;
+    position:absolute;
+    right:15px;
+    top:10px;
+    font-size:20px;
 }
 
 /* INTRO */
 #intro{
     position:fixed;
-    top:0;
-    left:0;
     width:100%;
     height:100vh;
     background:#f7f3ee;
     display:flex;
     align-items:center;
     justify-content:center;
-    z-index:99999;
+    z-index:9999;
 }
-#intro.hide{
-    opacity:0;
-    visibility:hidden;
-    transition:1s;
+
+#intro.hide{display:none;}
+
+#celebration{position:absolute;width:100%;height:100%;}
+
+.particle{
+    position:absolute;
+    width:6px;
+    height:6px;
+    background:#c9a47c;
+    border-radius:50%;
+    animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+    from{transform:translateY(100vh);}
+    to{transform:translateY(-10vh);}
 }
 </style>
 </head>
@@ -152,6 +240,7 @@ body{
 
 <!-- INTRO -->
 <div id="intro">
+    <div id="celebration"></div>
     <div>
         <h2>Bismillah ...</h2>
         <h1>Ajmal & Hiba</h1>
@@ -172,35 +261,44 @@ body{
 
 <!-- INVITE -->
 <section class="section">
-<p>To our beloved family and friends — Your presence is the greatest gift.</p>
+<p class="invite-text">
+To our beloved family and friends — Your presence is the greatest gift you could give us.
+</p>
+
 <div class="invite-image">
 <img src="2.webp">
 </div>
+
+<p class="invite-subtext">
+Two souls, one beautiful journey...
+</p>
 </section>
 
 <!-- COUNTDOWN -->
 <section class="section">
 <div class="countdown-box">
-<h2 id="days"></h2>
-<h2 id="hours"></h2>
-<h2 id="minutes"></h2>
-<h2 id="seconds"></h2>
+<div class="count-item"><h1 id="days"></h1><p>Days</p></div>
+<div class="count-item"><h1 id="hours"></h1><p>Hours</p></div>
+<div class="count-item"><h1 id="minutes"></h1><p>Minutes</p></div>
+<div class="count-item"><h1 id="seconds"></h1><p>Seconds</p></div>
 </div>
 </section>
 
 <!-- ROOTS -->
 <section class="section">
+<h2 class="roots-title">THE ROOTS THAT MADE US</h2>
+
 <div class="person-card">
 <div class="arch-img"><img src="3.webp"></div>
-<h3>MOHAMMED AJMAL</h3>
+<h3 class="person-name">MOHAMMED AJMAL</h3>
 <p>S/O MR. ASHRAF V & MRS. NASEEMA KP</p>
 </div>
 
-<div>&</div>
+<div class="and">&</div>
 
 <div class="person-card">
 <div class="arch-img"><img src="4.webp"></div>
-<h3>HIBA FATHMA</h3>
+<h3 class="person-name">HIBA FATHMA</h3>
 <p>D/O MR. SABITH & MRS. SAMEERA</p>
 </div>
 </section>
@@ -208,22 +306,22 @@ body{
 <!-- NIKAH -->
 <section class="section">
 <div class="nikah-card">
+<img src="5.webp" class="nikah-img">
 <h2>NIKKAH</h2>
-<p>📅 May 16, 2026</p>
-<p>🕌 After Magrib Prayer</p>
-<p>📍 Shifa Mahal, Mannur</p>
-<a href="https://maps.app.goo.gl/AwNd82b9LsFQYYHF8?g_st=ic" class="map-btn">VIEW MAP</a>
+<p>May 16, 2026</p>
+<p>After Magrib Prayer</p>
+<p>Shifa Mahal, Mannur</p>
 </div>
 </section>
 
 <!-- RECEPTION -->
 <section class="section">
 <div class="nikah-card">
+<img src="6.webp" class="nikah-img">
 <h2>RECEPTION</h2>
-<p>📅 May 17, 2026</p>
-<p>🕛 From 12:00 PM</p>
-<p>📍 Shifa Mahal, Mannur</p>
-<a href="https://maps.app.goo.gl/AwNd82b9LsFQYYHF8?g_st=ic" class="map-btn">VIEW MAP</a>
+<p>May 17, 2026</p>
+<p>From 12 PM</p>
+<p>Shifa Mahal, Mannur</p>
 </div>
 </section>
 
@@ -233,61 +331,80 @@ body{
 <h3>WISHES FROM THE HEART</h3>
 <h2>Explore the love and wishes shared with us</h2>
 
+<div class="wish-wrapper">
 <input id="name" placeholder="Name">
-<textarea id="wish" placeholder="Your Wish"></textarea>
-<button onclick="addWish()">Submit</button>
+<textarea id="wish" placeholder="Make Your Wish"></textarea>
+<button class="btn" onclick="addWish()">SUBMIT</button>
+</div>
 
 <div id="wishList"></div>
 
 </section>
 
 <script>
-// intro fix
-window.onload=function(){
-setTimeout(()=>document.getElementById("intro").classList.add("hide"),3000);
+
+// intro
+window.onload=()=>{
+    let c=document.getElementById("celebration");
+    for(let i=0;i<40;i++){
+        let p=document.createElement("div");
+        p.className="particle";
+        p.style.left=Math.random()*100+"%";
+        p.style.animationDuration=(5+Math.random()*5)+"s";
+        c.appendChild(p);
+    }
+    setTimeout(()=>document.getElementById("intro").classList.add("hide"),2000);
 };
 
 // countdown
-const date=new Date("May 16, 2026 18:30:00").getTime();
+let d=new Date("May 16 2026 18:30:00").getTime();
 setInterval(()=>{
-let d=date-new Date().getTime();
-days.innerHTML=Math.floor(d/86400000);
-hours.innerHTML=Math.floor(d%86400000/3600000);
-minutes.innerHTML=Math.floor(d%3600000/60000);
-seconds.innerHTML=Math.floor(d%60000/1000);
+let now=new Date().getTime();
+let diff=d-now;
+days.innerHTML=Math.floor(diff/86400000);
+hours.innerHTML=Math.floor(diff%86400000/3600000);
+minutes.innerHTML=Math.floor(diff%3600000/60000);
+seconds.innerHTML=Math.floor(diff%60000/1000);
 },1000);
+
 </script>
 
+<!-- FIREBASE -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
 <script>
-firebase.initializeApp({
-apiKey:"AIzaSy...",
+const firebaseConfig={
+apiKey:"AIzaSyAlJTBU9pXG_I5dJmGtwEYNJ_uMpB2c2Ng",
 authDomain:"ajmal-hiba-wedding.firebaseapp.com",
 projectId:"ajmal-hiba-wedding"
-});
+};
 
+firebase.initializeApp(firebaseConfig);
 const db=firebase.firestore();
 
 function addWish(){
-let n=name.value;
-let w=wish.value;
-if(!n||!w)return alert("Enter details");
+let name=document.getElementById("name").value;
+let wish=document.getElementById("wish").value;
+if(!name||!wish)return alert("Enter details");
 
-db.collection("wishes").add({name:n,wish:w,time:Date.now()});
+db.collection("wishes").add({
+name,wish,time:Date.now()
+});
+
 name.value="";
 wish.value="";
 }
 
-db.collection("wishes").orderBy("time","desc").onSnapshot(s=>{
+db.collection("wishes").orderBy("time","desc").onSnapshot(snap=>{
 let html="";
-s.forEach(d=>{
-let x=d.data();
-html+=`<div class="wish-card">
+snap.forEach(doc=>{
+let d=doc.data();
+html+=`
+<div class="wish-card">
 <div class="quote">❝</div>
-<div class="wish-name">${x.name}</div>
-<div class="wish-text">${x.wish}</div>
+<div class="wish-name">${d.name}</div>
+<div class="wish-text">${d.wish}</div>
 </div>`;
 });
 wishList.innerHTML=html;
