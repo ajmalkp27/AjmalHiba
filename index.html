@@ -6,12 +6,8 @@
 <meta property="og:title" content="Ajmal Weds Hiba 💍">
 <meta property="og:description" content="Nikah on May 16 after Magrib Prayer. Join us to celebrate our blessed union.">
 <meta property="og:image" content="https://ajmalkp27.github.io/AjmalHiba/preview.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://ajmalkp27.github.io/AjmalHiba/">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="image" content="https://ajmalkp27.github.io/AjmalHiba/preview.jpg">
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -187,13 +183,39 @@ input,textarea{
     border-radius:8px;
 }
 
+/* NEW WISH CARD */
 .wish-card{
-    background:#f9f9f9;
-    padding:18px;
-    margin:15px 0;
-    border-radius:12px;
+    background:#fff;
+    padding:20px;
+    margin:15px auto;
+    border-radius:16px;
+    max-width:350px;
     text-align:left;
-    border-left:4px solid #b07a6a;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+    position:relative;
+    border-bottom:4px solid #b07a6a;
+}
+
+.wish-name{
+    font-family:'Playfair Display';
+    font-size:18px;
+    letter-spacing:1px;
+    color:#6b4c3b;
+    margin-bottom:10px;
+}
+
+.wish-text{
+    font-size:14px;
+    color:#444;
+    line-height:1.6;
+}
+
+.quote{
+    position:absolute;
+    top:15px;
+    right:15px;
+    font-size:22px;
+    color:#999;
 }
 
 /* INTRO */
@@ -213,49 +235,6 @@ input,textarea{
     opacity:0;
     visibility:hidden;
 }
-
-.intro-content{
-    position:relative;
-    z-index:2;
-}
-
-/* PARTICLES */
-#celebration{
-    position:absolute;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    top:0;
-    left:0;
-    z-index:1;
-}
-
-.particle{
-    position:absolute;
-    width:8px;
-    height:8px;
-    background:#c9a47c;
-    border-radius:50%;
-    opacity:0.7;
-    animation:floatUp linear infinite;
-}
-
-@keyframes floatUp{
-    from{
-        transform:translateY(100vh);
-        opacity:0;
-    }
-    to{
-        transform:translateY(-10vh);
-        opacity:1;
-    }
-}
-
-.event-top-text{
-    font-size:14px;
-    margin-bottom:25px;
-    line-height:1.6;
-}
 </style>
 </head>
 
@@ -263,10 +242,8 @@ input,textarea{
 
 <!-- INTRO -->
 <div id="intro">
-    <div id="celebration"></div>
-
-    <div class="intro-content">
-        <h2>Bismillah</h2>
+    <div>
+        <h2>Bismillah ...</h2>
         <h1>Ajmal & Hiba</h1>
         <p>Are Getting Married</p>
         <p>You are invited to a blessed union</p>
@@ -279,155 +256,81 @@ input,textarea{
     <div class="names">Ajmal & Hiba</div>
     <p class="subtitle">With the blessings of Allah</p>
     <div class="hero-img">
-       <img src="1.webp" loading="eager">
+       <img src="1.webp">
     </div>
 </section>
 
 <!-- INVITE -->
 <section class="section">
     <p class="invite-text">
-        To our beloved family and friends — Your presence is the greatest gift you could give us on this blessed day.
+        To our beloved family and friends — Your presence is the greatest gift you could give us.
     </p>
 
     <div class="invite-image">
-         <img src="2.webp" loading="lazy">
+         <img src="2.webp">
     </div>
 
     <p class="invite-subtext">
-        Two souls, one beautiful journey. With the blessings of Allah and the love of our families, we joyfully invite you to celebrate the beginning of our forever.
+        Two souls, one beautiful journey...
     </p>
 </section>
 
 <!-- COUNTDOWN -->
 <section class="section">
-    <div class="countdown-box">
-        <div class="countdown-title"><span></span> Just <span></span></div>
-
-        <div class="count-item"><h1 id="days"></h1><p>Days</p></div>
-        <div class="count-item"><h1 id="hours"></h1><p>Hours</p></div>
-        <div class="count-item"><h1 id="minutes"></h1><p>Minutes</p></div>
-        <div class="count-item"><h1 id="seconds"></h1><p>Seconds</p></div>
-
-        <div class="count-footer">Until We Get Married</div>
-    </div>
-</section>
-
-<!-- ROOTS -->
-<section class="section">
-    <h2 class="roots-title">THE ROOTS THAT MADE US</h2>
-
-    <p class="roots-sub">
-        Behind every loving couple stands two families full of prayers, blessings, and unconditional love.
-    </p>
-
-    <div class="person-card">
-        <div class="arch-img">
-             <img src="3.webp" loading="lazy">
-        </div>
-        <h3 class="person-name">MUHAMMAD AJMAL</h3>
-        <p class="person-desc">
-            S/O MR. ASHRAF V <br>
-            & MRS. NASEEMA KP
-        </p>
-    </div>
-
-    <div class="and">&</div>
-
-    <div class="person-card">
-        <div class="arch-img">
-             <img src="4.webp" loading="lazy">
-        </div>
-        <h3 class="person-name">HIBA FATHMA</h3>
-        <p class="person-desc">
-            D/O MR. SABITH <br>
-            & MRS. SAMEERA
-        </p>
-    </div>
+<div class="countdown-box">
+<div class="count-item"><h1 id="days"></h1><p>Days</p></div>
+<div class="count-item"><h1 id="hours"></h1><p>Hours</p></div>
+<div class="count-item"><h1 id="minutes"></h1><p>Minutes</p></div>
+<div class="count-item"><h1 id="seconds"></h1><p>Seconds</p></div>
+</div>
 </section>
 
 <!-- NIKAH -->
 <section class="section">
-    <p class="event-top-text">
-        With the blessings of Allah, we invite you to witness our Nikah and share in our joy.
-    </p>
-
-    <div class="nikah-card">
-         <img src="5.webp" class="nikah-img" loading="lazy">
-        <h2>NIKKAH</h2>
-        <p>📅 May 16, 2026</p>
-        <p>🕌 After Magrib Prayer</p>
-        <p>📍 Shifa Mahal, Mannur</p>
-
-        <a href="https://maps.app.goo.gl/AwNd82b9LsFQYYHF8?g_st=ic" target="_blank" class="map-btn">
-            VIEW MAP
-        </a>
-    </div>
-</section>
-<!-- RECEPTION -->
-<section class="section">
-
-    <p class="event-top-text">
-        We warmly invite you to join us for our Reception and celebrate this joyful occasion with your presence.
-    </p>
-
-    <div class="nikah-card">
-
-         <img src="rec.png" class="nikah-img" loading="lazy">
-
-        <h2>RECEPTION</h2>
-
-        <p>📅 May 17, 2026</p>
-        <p>🕛 From 12:00 PM</p>
-        <p>📍 Shifa Mahal, Mannur</p>
-
-        <a href="https://maps.app.goo.gl/AwNd82b9LsFQYYHF8?g_st=ic" target="_blank" class="map-btn">
-            VIEW MAP
-        </a>
-
-    </div>
-
+<div class="nikah-card">
+<img src="5.webp" class="nikah-img">
+<h2>NIKKAH</h2>
+<p>📅 May 16, 2026</p>
+<p>🕌 After Magrib Prayer</p>
+<p>📍 Shifa Mahal, Mannur</p>
+<a href="https://maps.app.goo.gl/AwNd82b9LsFQYYHF8?g_st=ic" target="_blank" class="map-btn">VIEW MAP</a>
+</div>
 </section>
 
 <!-- WISHES -->
 <section class="section">
-    <h2>Drop Your Wishes</h2>
 
-    <input type="text" id="name" placeholder="Your Name">
-    <textarea id="wish" placeholder="Your Wish"></textarea>
+<h3 style="letter-spacing:2px;color:#b07a6a;">WISHES FROM THE HEART</h3>
+<h2 style="font-family:'Playfair Display';margin:10px 0 30px;">
+Explore the love and wishes shared with us
+</h2>
 
-    <button class="btn" onclick="addWish()">Submit</button>
+<div style="border:2px solid #c9a47c;padding:25px;border-radius:12px;background:#fff;max-width:350px;margin:auto;">
+<h2 style="font-family:'Playfair Display';margin-bottom:15px;">DROP YOUR WISHES 💌</h2>
 
-    <div id="wishList"></div>
+<input type="text" id="name" placeholder="Name">
+<textarea id="wish" placeholder="Make Your Wish"></textarea>
+
+<button class="btn" onclick="addWish()" style="width:100%;">SUBMIT YOUR WISH</button>
+</div>
+
+<div id="wishList"></div>
+
 </section>
 
 <script>
+// intro
+setTimeout(()=>document.getElementById("intro").classList.add("hide"),2000);
 
-// INTRO
-window.onload=()=>{
-    const container = document.getElementById("celebration");
-
-    for(let i=0;i<40;i++){
-        let p=document.createElement("div");
-        p.classList.add("particle");
-        p.style.left=Math.random()*100+"%";
-        p.style.animationDuration=(5+Math.random()*5)+"s";
-        container.appendChild(p);
-    }
-
-    setTimeout(()=>document.getElementById("intro").classList.add("hide"),2000);
-};
-
-// COUNTDOWN
+// countdown
 const date=new Date("May 16, 2026 18:30:00").getTime();
 setInterval(()=>{
- let now=new Date().getTime();
- let d=date-now;
+ let d=date-new Date().getTime();
  document.getElementById("days").innerHTML=Math.floor(d/86400000);
  document.getElementById("hours").innerHTML=Math.floor(d%86400000/3600000);
  document.getElementById("minutes").innerHTML=Math.floor(d%3600000/60000);
  document.getElementById("seconds").innerHTML=Math.floor(d%60000/1000);
 },1000);
-
 </script>
 
 <!-- FIREBASE -->
@@ -435,49 +338,39 @@ setInterval(()=>{
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 
 <script>
-const firebaseConfig = {
-  apiKey: "AIzaSyAlJTBU9pXG_I5dJmGtwEYNJ_uMpB2c2Ng",
-  authDomain: "ajmal-hiba-wedding.firebaseapp.com",
-  projectId: "ajmal-hiba-wedding"
+const firebaseConfig={
+apiKey:"AIzaSyAlJTBU9pXG_I5dJmGtwEYNJ_uMpB2c2Ng",
+authDomain:"ajmal-hiba-wedding.firebaseapp.com",
+projectId:"ajmal-hiba-wedding"
 };
 
 firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
+const db=firebase.firestore();
 
 function addWish(){
-    const name=document.getElementById("name").value;
-    const wish=document.getElementById("wish").value;
+let name=document.getElementById("name").value;
+let wish=document.getElementById("wish").value;
 
-    if(name==""||wish==""){
-        alert("Enter details");
-        return;
-    }
+if(!name||!wish)return alert("Enter details");
 
-    db.collection("wishes").add({
-        name:name,
-        wish:wish,
-        time:Date.now()
-    });
+db.collection("wishes").add({name,wish,time:Date.now()});
 
-    document.getElementById("name").value="";
-    document.getElementById("wish").value="";
+document.getElementById("name").value="";
+document.getElementById("wish").value="";
 }
 
-db.collection("wishes")
-.orderBy("time","desc")
-.onSnapshot((snapshot)=>{
-    let html="";
-    snapshot.forEach(doc=>{
-        const data = doc.data();
-
-        html += `
-        <div class="wish-card">
-            <strong>${data.name}</strong>
-            <p>${data.wish}</p>
-        </div>`;
-    });
-
-    document.getElementById("wishList").innerHTML = html;
+db.collection("wishes").orderBy("time","desc").onSnapshot(snap=>{
+let html="";
+snap.forEach(doc=>{
+let d=doc.data();
+html+=`
+<div class="wish-card">
+<div class="quote">❝</div>
+<div class="wish-name">${d.name}</div>
+<div class="wish-text">${d.wish}</div>
+</div>`;
+});
+document.getElementById("wishList").innerHTML=html;
 });
 </script>
 
